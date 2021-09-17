@@ -27,7 +27,7 @@ export default {
 
   created() {
     axios
-      .get("https://pokeapi.co/api/v2/pokemon?limit=3&offset=0")
+      .get("https://pokeapi.co/api/v2/pokemon?limit=30&offset=0")
       .then((response) =>
         response["data"]["results"].forEach((element) => {
           axios.get(element["url"]).then((pokemon) =>
