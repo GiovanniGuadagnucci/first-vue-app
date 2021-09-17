@@ -4,14 +4,11 @@
       <ul>
         <div class="full-width row justify-around">
           <li v-for="pokemon in pokemons" v-bind:key="pokemon.name">
-            <q-card class="my-card">
-              <q-img :src="pokemon.sprite">
-                <div class="absolute-bottom">
-                  <div class="text-h6">{{ pokemon.name }}</div>
-                  <div class="text-subtitle2">{{ pokemon.type }}</div>
-                </div>
-              </q-img>
-            </q-card>
+            <div class="my-card column justify-center items-center">
+              <img :src="pokemon.sprite">
+              <h2>{{ pokemon.name }}</h2>
+              <p>{{ pokemon.type }}</p>
+            </div>
           </li>
         </div>
       </ul>
@@ -24,7 +21,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      pokemons: [],
+      pokemons: []
     };
   },
 
@@ -41,15 +38,17 @@ export default {
                 ],
               name: pokemon["data"]["name"],
               type: pokemon["data"]["types"][0]["type"]["name"],
+              id: pokemon["data"]["id"]
             })
           );
         })
       );
+    console.log(this.pokemons)
   },
 };
 </script>
 
-<style>
+<style scope>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -61,10 +60,28 @@ export default {
 ul li {
   list-style-type: none;
 }
-img {
-  width: 100px;
-}
+
 .my-card {
-  width: 250px;
+  width: 160px;
+  height: 160px;
+  margin: 8px;
+  background-color: #2c3e50;
+  padding: 8px;
+}
+img{
+  width: 80px;
+  height: 80px;
+}
+
+h2 {
+  color: white;
+  margin: 0;
+  line-height: 0;
+  font-size: 16px !important;
+}
+p{
+  color: white;
+  margin: 0 !important;
+  line-height: 0;
 }
 </style>
