@@ -8651,10 +8651,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-cli-plugin-quasar@~4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/vue-cli-plugin-quasar/-/vue-cli-plugin-quasar-4.0.2.tgz#e85f4c7d7f1e48c223698acadb25c82ef8c5f1a2"
-  integrity sha512-DU2abKe3lc9AoB4I7IbKiyliAH4Z+GluttWn4s+d1HACuck2Y6IWz18GukTW7Sl+RX1nJ3BvBrauT0aFPtrmxA==
+vue-cli-plugin-quasar@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/vue-cli-plugin-quasar/-/vue-cli-plugin-quasar-4.0.0.tgz#fe755036e1600e8f4cb8a5b3f6b34227eac4307e"
+  integrity sha512-0eiYx6RFTDf1aS8rNMb5CQFc9ynkPHuuD7R4QtllsokUWkO3CryASh+6KlWP8pkbQ01kGo5NGL+cCU21c9vcRw==
   dependencies:
     webpack-merge "^5.7.3"
 
