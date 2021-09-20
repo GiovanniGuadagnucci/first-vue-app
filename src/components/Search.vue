@@ -1,10 +1,18 @@
 <template>
-  <input
-    placeholder="Nome do poke"
-    v-model="filter"
-    v-on:input="getFilter(filter)"
-  />
-  <h5>{{ filter }}</h5>
+  <div class="q-pa-md">
+    <div
+      class="q-gutter-md"
+      style="max-width: 300px"
+      v-on:input="getFilter(filter)"
+    >
+      <q-input
+        placeholder="Digite o nome do Pokemon"
+        v-model="filter"
+        label="Pokemon"
+      />
+      <h5>{{ filter }}</h5>
+    </div>
+  </div>
 </template>
 
 <script>
