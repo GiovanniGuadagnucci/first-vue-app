@@ -1,9 +1,11 @@
 <template>
   <q-layout>
     <q-page-container>
+      <input v-model="filter" placeholder="Nome do poke">
+      <h5>{{filter}}</h5>
       <ul>
         <div class="full-width row justify-around">
-          <li v-for="pokemon in pokemons" v-bind:key="pokemon.name">
+          <li v-for="pokemon in filtredList" v-bind:key="pokemon.name">
             <div class="my-card column justify-center items-center">
               <img :src="pokemon.sprite">
               <h2>{{ pokemon.name }}</h2>
@@ -21,8 +23,25 @@ import axios from "axios";
 export default {
   data() {
     return {
-      pokemons: []
+      pokemons: [],
+      filter: null
     };
+  },
+
+  methods: {
+    pokefilter: (input) => {
+      console.log(input);
+    }
+  },
+
+  computed: {
+    filtredList(){
+      if(this.filter){
+        return this.pokemons.filter(pokemon =>  pokemon.name.includes(`${this.filter}`))
+      } else {
+        return this.pokemons
+      }
+    }
   },
 
   created() {
@@ -56,6 +75,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+ul{
+  padding: 0;
 }
 ul li {
   list-style-type: none;
