@@ -6,7 +6,7 @@
       v-on:input="getFilter(filter)"
     >
       <q-input
-        placeholder="Digite o nome do Pokemon"
+        placeholder="Digite o nome ou o ID do Pokemon"
         v-model="filter"
         label="Pokemon"
       />

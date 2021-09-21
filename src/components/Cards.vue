@@ -1,5 +1,5 @@
 <template>
-  <div class="my-card column justify-center items-center">
+  <div class="my-card column justify-around items-center">
     <img :src="pokeSprite" />
     <h2>{{ pokeName }}</h2>
     <p>{{ pokeType }}</p>
@@ -13,8 +13,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .my-card {
+  display: flex;
   width: 160px;
   height: 160px;
   margin: 8px;
