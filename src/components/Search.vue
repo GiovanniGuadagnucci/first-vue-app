@@ -28,5 +28,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.q-pa-md {
+  width: 320px;
+}
 </style>
