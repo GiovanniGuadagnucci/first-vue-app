@@ -2,11 +2,11 @@
   <div class="q-pa-md">
     <div class="row">
       <div class="col-6">
-        <List :pushFilter="this.filter" :getPoke="getPoke" />
+        <List :pushFilter="this.filter" />
       </div>
       <div class="trainer col-6">
         <Search :getFilter="getFilter" />
-        <ChosenPokemon :pushPokemon="this.chosenPokemon" />
+        <ChosenPokemon />
       </div>
     </div>
   </div>
@@ -28,18 +28,12 @@ export default {
   data() {
     return {
       filter: null,
-      chosenPokemon: null,
     };
   },
 
   methods: {
     getFilter(filter) {
       this.filter = filter;
-    },
-
-    getPoke(pokemon) {
-      this.chosenPokemon = pokemon;
-      console.log(pokemon);
     },
   },
 };

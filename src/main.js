@@ -1,7 +1,14 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import { Quasar } from 'quasar'
-import quasarUserOptions from './quasar-user-options'
+import { createApp } from "vue";
+import { Quasar } from "quasar";
+import App from "./App.vue";
+import ChosenPokemonStore from "./store/ChosenPokemonStore.js";
+import quasarUserOptions from "./quasar-user-options";
 
+// Create a new store instance.
 
-createApp(App).use(Quasar, quasarUserOptions).mount('#app')
+const app = createApp(App);
+
+// Install the store instance as a plugin
+app.use(ChosenPokemonStore);
+app.use(Quasar, quasarUserOptions);
+app.mount("#app");

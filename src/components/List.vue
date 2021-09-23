@@ -3,7 +3,7 @@
     <div class="full-width row justify-around">
       <li v-for="pokemon in filtredList" v-bind:key="pokemon.id">
         <Cards
-          v-on:click="getPoke(pokemon)"
+          v-on:click="addPokemon(pokemon)"
           :pokeSprite="pokemon.sprite"
           :pokeName="pokemon.name"
           :pokeType="pokemon.type"
@@ -14,12 +14,13 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 import Cards from "./Cards.vue";
 import axios from "axios";
 
 export default {
   name: "List",
-  props: ["pushFilter", "getPoke"],
+  props: ["pushFilter"],
   components: {
     Cards,
   },
@@ -31,6 +32,7 @@ export default {
   },
 
   computed: {
+    ...mapState(["chosenPokemons"]),
     filtredList() {
       if (this.pushFilter) {
         return this.pokemons.filter(
@@ -44,8 +46,12 @@ export default {
     },
   },
 
+  methods: {
+    ...mapMutations(["addPokemon"]),
+  },
+
   beforeCreate() {
-    axios("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0").then(
+    axios("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0").then(
       (response) => {
         response.data.results.forEach((element) => {
           axios.get(element.url).then((pokemon) => {

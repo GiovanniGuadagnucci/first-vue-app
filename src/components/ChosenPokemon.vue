@@ -1,17 +1,30 @@
 <template>
-  <div class="full-width row justify-around">
-    <div v-if="pushPokemon" class="my-card column justify-around items-center">
-      <img :src="pushPokemon.sprite" />
-      <h2>{{ pushPokemon.name }}</h2>
-      <p>{{ pushPokemon.type }}</p>
+  <div v-if="chosenPokemons" class="full-width row justify-around">
+    <div
+      v-for="pokemon in chosenPokemons"
+      v-bind:key="pokemon.id"
+      class="my-card column justify-around items-center"
+      v-on:click="removePokemon(pokemon)"
+    >
+      <img :src="pokemon.sprite" />
+      <h2>{{ pokemon.name }}</h2>
+      <p>{{ pokemon.type }}</p>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 export default {
   name: "ChosenPokemon",
-  props: ["pushPokemon"],
+
+  computed: {
+    ...mapState(["chosenPokemons"]),
+  },
+
+  methods: {
+    ...mapMutations(["removePokemon"]),
+  },
 };
 </script>
 
